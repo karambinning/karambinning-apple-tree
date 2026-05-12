@@ -2,695 +2,824 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Apple Tree — Quorn · A 1930s pub on Stoop Lane</title>
-<meta name="description" content="The Apple Tree, 2 Stoop Lane, Quorn LE12 8BU. A 1930s two-room community pub with Draught Bass on cask, a wood burner in the lounge and a large rear garden. Dogs and families welcome.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apple Tree Inn · Quorn · A village pub on Stoop Lane</title>
+<meta name="description" content="The Apple Tree Inn, a two-room village pub on the corner of Stoop Lane and Station Road in Quorn, Leicestershire. Draught Bass, wood burner, rear garden. Dogs on leads, not the furniture.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#1A1411;
-    --ink-soft:#3a2e26;
-    --paper:#F4ECDA;
-    --paper-soft:#FAF5E8;
-    --orchard:#3A4C2E;
-    --orchard-deep:#27331E;
-    --hearth:#B23B22;
-    --hearth-glow:#D86A3F;
-    --brass:#B68B47;
-    --map-blue:#1E4D8B;          /* find-us / postcode accent (from brief heuristic) */
-    --soft-surface:#F5F5F5;       /* brand_colour_secondary from brief */
-    --rule:1px solid color-mix(in oklch, var(--ink) 18%, transparent);
-    --rule-cream:1px solid color-mix(in oklch, var(--paper) 70%, transparent);
-    --rhythm:clamp(1rem,.6rem + .8vw,1.18rem);
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
-    font-size:var(--rhythm);
-    line-height:1.55;
-    font-feature-settings:"liga","ss01";
-    overflow-x:hidden;
-  }
-  /* paper grain overlay */
-  body::before{
-    content:"";
-    position:fixed;inset:0;pointer-events:none;z-index:1;
-    opacity:.07;mix-blend-mode:multiply;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .1 0 0 0 0 .08 0 0 0 0 .07 0 0 0 .8 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  }
-  h1,h2,h3,h4{
-    font-family:"Fraunces",Georgia,"Times New Roman",serif;
-    font-weight:800;
-    line-height:.95;
-    letter-spacing:-.025em;
-    text-wrap:balance;
-    margin:0;
-    font-variation-settings:"opsz" 120,"SOFT" 50;
-  }
-  p,li{text-wrap:pretty;hyphens:auto}
-  a{color:inherit;text-decoration:none}
-  ::selection{background:var(--hearth);color:var(--paper)}
-
-  /* ====== TOP RIBBON ====== */
-  .ribbon{
-    position:relative;z-index:5;
-    background:var(--orchard-deep);
-    color:var(--paper);
-    font-family:"Source Serif 4",serif;
-    font-style:italic;
-    font-size:.86rem;
-    letter-spacing:.02em;
-    border-bottom:1px solid color-mix(in oklch, var(--paper) 20%, transparent);
-  }
-  .ribbon-row{
-    max-width:1320px;margin:0 auto;padding:.55rem clamp(1rem,3vw,2.2rem);
-    display:flex;justify-content:space-between;gap:1rem;
-  }
-  .ribbon .dot{display:inline-block;width:.45rem;height:.45rem;border-radius:50%;background:var(--hearth-glow);margin-right:.5rem;vertical-align:.1em;animation:embers 2.6s ease-in-out infinite}
-  @keyframes embers{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
-
-  /* ====== NAV ====== */
-  nav.top{
-    position:relative;z-index:6;
-    max-width:1320px;margin:0 auto;
-    padding:1.6rem clamp(1rem,3vw,2.2rem) 1rem;
-    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;
-  }
-  .mark{
-    font-family:"Fraunces",serif;font-weight:900;
-    font-size:1.15rem;letter-spacing:-.01em;
-    display:flex;align-items:center;gap:.55rem;
-  }
-  .mark svg{width:1.6rem;height:1.6rem;flex-shrink:0}
-  .mark small{
-    display:block;font-family:"Source Serif 4",serif;font-style:italic;
-    font-weight:400;font-size:.72rem;letter-spacing:.05em;
-    color:var(--ink-soft);margin-top:.1rem;
-  }
-  nav.top ul{
-    list-style:none;display:flex;justify-content:center;
-    gap:clamp(.9rem,2vw,1.8rem);
-    margin:0;padding:0;
-    font-family:"Fraunces",serif;font-weight:600;
-    font-size:.95rem;letter-spacing:.01em;
-  }
-  nav.top a.link{position:relative;padding:.25rem 0}
-  nav.top a.link::after{
-    content:"";position:absolute;left:0;right:100%;bottom:-.2rem;
-    height:1.5px;background:var(--hearth);transition:right .35s ease;
-  }
-  nav.top a.link:hover::after{right:0}
-  .phone-pill{
-    display:inline-flex;align-items:baseline;gap:.6rem;
-    border:1.5px solid var(--ink);padding:.45rem .85rem;
-    border-radius:999px;font-family:"Fraunces",serif;font-weight:700;
-    font-size:.98rem;letter-spacing:-.005em;background:var(--paper-soft);
-    transition:background .2s ease,color .2s ease,border-color .2s ease;
-  }
-  .phone-pill small{font-family:"Source Serif 4",serif;font-style:italic;font-weight:400;font-size:.74rem;color:var(--ink-soft)}
-  .phone-pill:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-  .phone-pill:hover small{color:color-mix(in oklch, var(--paper) 70%, transparent)}
-
-  /* ====== HERO ====== */
-  .hero{
-    position:relative;
-    padding:clamp(2rem,5vw,4.5rem) clamp(1rem,3vw,2.2rem) clamp(2.5rem,6vw,5rem);
-    max-width:1320px;margin:0 auto;
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);
-    gap:clamp(1.5rem,4vw,4rem);
-    align-items:end;
-  }
-  .hero h1{
-    font-size:clamp(3.6rem,14vw,11.5rem);
-    font-weight:900;
-    letter-spacing:-.045em;
-    line-height:.86;
-    font-variation-settings:"opsz" 144,"SOFT" 30;
-  }
-  .hero h1 .the{
-    display:block;
-    font-style:italic;font-weight:500;
-    font-size:clamp(1.3rem,2.6vw,1.8rem);
-    letter-spacing:.04em;line-height:1;
-    margin-bottom:.5rem;
-    color:var(--hearth);
-    font-variation-settings:"opsz" 30;
-  }
-  .hero h1 .apple,.hero h1 .tree{display:block}
-  .hero h1 .tree{
-    color:var(--orchard);
-    font-style:italic;
-    margin-top:-.05em;
-    font-variation-settings:"opsz" 144,"SOFT" 90;
-  }
-  .hero-aside{
-    padding-bottom:.6rem;
-    border-left:var(--rule);padding-left:clamp(1rem,2vw,2rem);
-  }
-  .stand{
-    font-family:"Source Serif 4",serif;font-style:italic;
-    font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.45;
-    color:var(--ink-soft);
-    max-width:32ch;
-  }
-  .stand b{font-weight:600;color:var(--ink);font-style:normal}
-  .hero-meta{
-    margin-top:1.6rem;display:flex;flex-direction:column;gap:.55rem;
-    font-family:"Fraunces",serif;font-size:.95rem;letter-spacing:.005em;
-  }
-  .hero-meta div{display:flex;justify-content:space-between;gap:1rem;border-bottom:var(--rule);padding-bottom:.4rem}
-  .hero-meta span:first-child{font-style:italic;color:var(--ink-soft);font-family:"Source Serif 4",serif;font-weight:400}
-  .hero-meta span:last-child{font-weight:600}
-  .open-pill{
-    display:inline-flex;align-items:center;gap:.5rem;
-    margin-top:1.2rem;
-    padding:.45rem .9rem;background:var(--hearth);color:var(--paper);
-    border-radius:2px;font-family:"Fraunces",serif;font-weight:700;
-    font-size:.95rem;letter-spacing:.02em;
-  }
-  .open-pill::before{content:"";width:.5rem;height:.5rem;background:var(--hearth-glow);border-radius:50%;box-shadow:0 0 0 3px color-mix(in oklch, var(--hearth-glow) 30%, transparent);animation:embers 2.6s ease-in-out infinite}
-
-  @media (max-width:780px){
-    .hero-grid{grid-template-columns:1fr;gap:2rem}
-    .hero-aside{border-left:none;border-top:var(--rule);padding-left:0;padding-top:1.4rem}
-    nav.top{grid-template-columns:1fr auto;padding-bottom:.5rem}
-    nav.top ul{display:none}
-    .ribbon-row{flex-direction:column;gap:.2rem;font-size:.78rem;padding:.45rem 1rem}
+  :root {
+    --ink:        #1E2A22;
+    --moss:       #3F5147;
+    --moss-deep:  #2A372F;
+    --brass:      #C7B486;
+    --brass-deep: #A4926A;
+    --cream:      #F4EFE6;
+    --cream-warm: #EDE5D4;
+    --rule:       rgba(30, 42, 34, 0.18);
+    --display:    "DM Serif Display", "Source Serif 4", Georgia, serif;
+    --body:       "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --rhythm:     clamp(1rem, 0.65rem + 0.7vw, 1.18rem);
   }
 
-  /* ====== MARQUEE ====== */
-  .marquee{
-    overflow:hidden;background:var(--ink);color:var(--paper);
-    border-top:1px solid var(--orchard-deep);
-    border-bottom:1px solid var(--orchard-deep);
-    padding:1rem 0;
-  }
-  .marquee-track{
-    display:inline-flex;gap:3rem;white-space:nowrap;
-    animation:scroll 38s linear infinite;
-    font-family:"Fraunces",serif;font-weight:600;
-    font-size:clamp(1.4rem,3vw,2.2rem);letter-spacing:.005em;
-  }
-  .marquee-track span{display:inline-flex;align-items:center;gap:1.5rem}
-  .marquee-track span::after{
-    content:"";width:.65rem;height:.65rem;background:var(--hearth-glow);
-    border-radius:50%;display:inline-block;
-  }
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-  /* ====== SECTIONS ====== */
-  section{padding:clamp(3rem,7vw,6rem) clamp(1rem,3vw,2.2rem);position:relative;z-index:2}
-  .wrap{max-width:1320px;margin:0 auto}
-  .eyebrow{
-    display:inline-block;
-    font-family:"Source Serif 4",serif;font-style:italic;font-weight:400;
-    font-size:.92rem;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--hearth);margin-bottom:1.2rem;
-  }
-  .moss{background:var(--orchard);color:var(--paper)}
-  .moss .eyebrow{color:var(--brass)}
-  .moss h2 .accent{color:var(--brass)}
-  .moss h2 .it{color:var(--hearth-glow)}
-  .ink{background:var(--ink);color:var(--paper)}
-  .ink .eyebrow{color:var(--hearth-glow)}
-
-  /* ====== ABOUT ====== */
-  .about-grid{
-    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-    gap:clamp(2rem,5vw,5rem);align-items:start;
-  }
-  .about h2{
-    font-size:clamp(2.4rem,6vw,5.2rem);
-    letter-spacing:-.035em;
-  }
-  .about h2 .it{font-style:italic;font-weight:600;color:var(--hearth)}
-  .about-body p{font-size:clamp(1.05rem,1.3vw,1.22rem);line-height:1.6;margin:0 0 1.1rem}
-  .about-body p:first-child::first-line{font-variant:small-caps;letter-spacing:.06em}
-  .about-body p:first-child::first-letter{
-    font-family:"Fraunces",serif;font-weight:800;font-style:italic;
-    font-size:4.6rem;line-height:.8;float:left;
-    padding:.4rem .5rem 0 0;color:var(--hearth);
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: var(--rhythm);
+    line-height: 1.55;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
-  @media (max-width:780px){
-    .about-grid{grid-template-columns:1fr}
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.18'/></svg>");
+    mix-blend-mode: multiply;
+    opacity: 0.55;
   }
 
-  /* ====== SERVICES / WHAT'S ON ====== */
-  .whats-on h2{font-size:clamp(2.4rem,7vw,5.5rem);letter-spacing:-.035em;margin-bottom:.5rem}
-  .whats-on h2 .it{font-style:italic;color:var(--hearth-glow)}
-  .whats-on .lede{
-    font-family:"Source Serif 4",serif;font-style:italic;
-    max-width:38ch;font-size:1.15rem;margin-bottom:3rem;
-    color:color-mix(in oklch, var(--paper) 78%, transparent);
+  h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: -0.01em; line-height: 1.02; text-wrap: balance; margin: 0; }
+  p { text-wrap: pretty; hyphens: auto; margin: 0 0 1em; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--moss-deep); }
+
+  .wrap { width: min(1180px, 92vw); margin-inline: auto; }
+  .rule { border: 0; height: 1px; background: var(--rule); margin: 0; }
+
+  nav.top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    backdrop-filter: saturate(1.1);
   }
-  .menu-list{list-style:none;margin:0;padding:0}
-  .menu-row{
-    display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;
-    gap:1rem;
-    padding:1.4rem 0;
-    border-top:1px solid color-mix(in oklch, var(--paper) 25%, transparent);
+  nav.top .wrap {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.1rem 0;
   }
-  .menu-row:last-child{border-bottom:1px solid color-mix(in oklch, var(--paper) 25%, transparent)}
-  .menu-row h3{
-    font-family:"Fraunces",serif;font-weight:700;
-    font-size:clamp(1.4rem,2.4vw,2rem);
-    letter-spacing:-.01em;
-    color:var(--paper);
+  nav.top .mark {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    letter-spacing: -0.005em;
   }
-  .menu-row h3 .it{font-style:italic;color:var(--brass);font-weight:500}
-  .menu-row p{
-    margin:0;color:color-mix(in oklch, var(--paper) 80%, transparent);
-    font-size:1rem;line-height:1.5;max-width:62ch;
-    font-family:"Source Serif 4",serif;
+  nav.top .mark em {
+    font-style: italic;
+    color: var(--moss);
+    margin-right: .35rem;
   }
-  .menu-row .num{
-    font-family:"Fraunces",serif;font-style:italic;
-    font-size:.95rem;color:var(--brass);
-    min-width:2.4em;
+  nav.top ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.4rem;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
-  .menu-row .tag{
-    font-family:"Source Serif 4",serif;font-style:italic;font-size:.9rem;
-    color:var(--brass);white-space:nowrap;
+  nav.top a {
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: border-color .25s ease;
+  }
+  nav.top a:hover { border-bottom-color: var(--ink); }
+  nav.top .call {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  @media (max-width: 760px) {
+    nav.top ul li:not(.call-li) { display: none; }
   }
 
-  @media (max-width:680px){
-    .menu-row{grid-template-columns:auto 1fr;gap:.8rem}
-    .menu-row .tag{grid-column:2;color:var(--hearth-glow);font-size:.8rem;margin-top:.2rem}
-    .menu-row p{grid-column:2}
+  header.hero {
+    position: relative;
+    padding: clamp(3rem, 6vw, 6rem) 0 clamp(2rem, 3vw, 3rem);
+    background:
+      radial-gradient(ellipse at 70% 0%, rgba(199, 180, 134, 0.22), transparent 60%),
+      var(--cream);
+    overflow: hidden;
+  }
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: clamp(2rem, 4vw, 5rem);
+    align-items: end;
+  }
+  @media (max-width: 880px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 2.2rem; }
   }
 
-  /* ====== GARDEN STRIP ====== */
-  .garden{
-    background:linear-gradient(180deg,var(--paper) 0%,var(--paper-soft) 100%);
-    text-align:center;
+  .hero .eyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 1.2rem;
   }
-  .garden h2{
-    font-size:clamp(2rem,6vw,4.5rem);
-    margin-bottom:1.5rem;letter-spacing:-.035em;
+  .hero h1 {
+    font-size: clamp(3.4rem, 11vw, 9rem);
+    letter-spacing: -0.025em;
+    line-height: 0.92;
+    margin-bottom: 0.4em;
   }
-  .garden h2 .it{font-style:italic;color:var(--orchard)}
-  .garden p{
-    max-width:48ch;margin:0 auto 1.5rem;font-size:1.18rem;line-height:1.55;
+  .hero h1 em {
+    font-style: italic;
+    color: var(--moss);
+    font-size: 0.78em;
+    letter-spacing: -0.015em;
   }
-  .garden .meta-row{
-    display:flex;justify-content:center;gap:clamp(1rem,3vw,3rem);
-    flex-wrap:wrap;margin-top:2.6rem;
-    font-family:"Fraunces",serif;font-weight:600;font-size:.9rem;letter-spacing:.04em;
-    text-transform:uppercase;
+  .hero .lede {
+    font-size: clamp(1.05rem, 0.85rem + 0.5vw, 1.25rem);
+    max-width: 28em;
+    color: var(--moss-deep);
+    margin-bottom: 1.6rem;
   }
-  .meta-row span{
-    display:inline-flex;align-items:center;gap:.45rem;
-    color:var(--ink-soft);
+  .hero .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.3rem;
+    font-size: 0.95rem;
+    color: var(--moss-deep);
   }
-  .meta-row span::before{content:"";width:.5rem;height:.5rem;background:var(--hearth);border-radius:50%}
+  .hero .meta a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--brass-deep);
+  }
+  .hero .meta a:hover { border-bottom-color: var(--ink); }
 
-  /* ====== GALLERY PLACEHOLDER ====== */
-  .gallery{background:var(--paper-soft)}
-  .gallery h2{
-    font-size:clamp(2.2rem,6vw,4.8rem);letter-spacing:-.035em;
-    margin-bottom:.6rem;
+  .status-card {
+    border: 1px solid var(--ink);
+    background: var(--cream-warm);
+    padding: 1.6rem 1.5rem 1.4rem;
+    position: relative;
   }
-  .gallery h2 .it{font-style:italic;color:var(--orchard)}
-  .gallery-lede{
-    font-family:"Source Serif 4",serif;font-style:italic;
-    max-width:38ch;margin-bottom:2.6rem;color:var(--ink-soft);
+  .status-card::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid var(--ink);
+    pointer-events: none;
   }
-  .frames{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:1.2rem;
+  .status-card h3 {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
   }
-  .frame{
-    aspect-ratio:4/5;
-    background:repeating-linear-gradient(
-      45deg,
-      color-mix(in oklch, var(--paper) 80%, var(--ink)) 0 1px,
-      transparent 1px 14px
-    );
-    border:1px solid color-mix(in oklch, var(--ink) 18%, transparent);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--ink-soft);font-family:"Source Serif 4",serif;font-style:italic;
-    font-size:.95rem;text-align:center;padding:1.2rem;
-    position:relative;
+  .status-card .open-now {
+    font-family: var(--body);
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 0.7rem;
   }
-  .frame:nth-child(2){aspect-ratio:1/1;align-self:center}
-  .frame:nth-child(3){aspect-ratio:3/4}
-  .frame:nth-child(4){aspect-ratio:1/1;align-self:end}
-  .frame::after{
-    content:"";position:absolute;inset:.4rem;border:1px solid color-mix(in oklch, var(--ink) 10%, transparent);pointer-events:none;
+  .status-card dl {
+    margin: 0.6rem 0 0;
+    font-size: 0.95rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1.2rem;
+    row-gap: 0.25rem;
   }
-  .frame em{display:block;margin-top:.3rem;font-style:italic;color:var(--brass)}
-
-  /* ====== CONTACT ====== */
-  .contact-grid{
-    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
-    gap:clamp(2rem,4vw,4rem);
-  }
-  .contact h2{
-    font-size:clamp(2.4rem,7vw,5.5rem);letter-spacing:-.035em;
-    color:var(--paper);
-  }
-  .contact h2 .it{font-style:italic;color:var(--hearth-glow)}
-  .contact .lede{
-    font-family:"Source Serif 4",serif;font-style:italic;
-    font-size:1.2rem;color:color-mix(in oklch, var(--paper) 75%, transparent);
-    max-width:38ch;margin:1rem 0 2.2rem;
-  }
-  .letterhead{
-    font-family:"Fraunces",serif;font-weight:600;
-    font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.6;letter-spacing:.005em;
-  }
-  .letterhead .label{
-    display:block;font-family:"Source Serif 4",serif;font-style:italic;
-    font-weight:400;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;
-    color:var(--brass);margin-bottom:.2rem;margin-top:1.6rem;
-  }
-  .letterhead .label:first-child{margin-top:0}
-  .letterhead a{
-    color:var(--paper);border-bottom:1px solid var(--brass);
-    transition:color .2s ease,border-color .2s ease;
-  }
-  .letterhead a:hover{color:var(--hearth-glow);border-color:var(--hearth-glow)}
-  .postcode{
-    display:inline-block;font-family:"Fraunces",serif;font-weight:800;
-    font-size:1.4rem;letter-spacing:.01em;
-    background:var(--map-blue);color:var(--paper);
-    padding:.2rem .65rem;border-radius:2px;margin-top:.2rem;
-  }
-  .map{
-    aspect-ratio:4/3;border-radius:2px;overflow:hidden;
-    border:1.5px solid var(--brass);
-    background:var(--soft-surface);
-  }
-  .map iframe{width:100%;height:100%;border:0;display:block;filter:contrast(.97) saturate(.85)}
-
-  @media (max-width:780px){
-    .contact-grid{grid-template-columns:1fr}
+  .status-card dt { color: var(--moss); }
+  .status-card dd { margin: 0; font-variant-numeric: tabular-nums; }
+  .status-card .est {
+    margin-top: 1.1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--moss-deep);
   }
 
-  /* ====== FOOTER ====== */
-  footer{
-    background:var(--paper);color:var(--ink);
-    padding:clamp(2.5rem,5vw,4rem) clamp(1rem,3vw,2.2rem);
-    border-top:1px solid color-mix(in oklch, var(--ink) 18%, transparent);
-    position:relative;z-index:2;
+  .marquee {
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.95rem 0;
+    border-top: 1px solid var(--moss-deep);
+    border-bottom: 1px solid var(--moss-deep);
   }
-  .foot-grid{
-    max-width:1320px;margin:0 auto;
-    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;align-items:start;
+  .marquee__track {
+    display: inline-flex;
+    gap: 3rem;
+    white-space: nowrap;
+    animation: scroll 38s linear infinite;
+    font-family: var(--display);
+    font-size: 1.15rem;
+    letter-spacing: 0.005em;
   }
-  .foot-mark{
-    font-family:"Fraunces",serif;font-weight:900;
-    font-size:clamp(2rem,4vw,3rem);letter-spacing:-.025em;line-height:.95;
+  .marquee__track span { display: inline-flex; gap: 3rem; }
+  .marquee__track .dot {
+    color: var(--brass);
+    font-style: italic;
   }
-  .foot-mark .it{font-style:italic;color:var(--orchard)}
-  .foot-mark small{
-    display:block;font-family:"Source Serif 4",serif;font-style:italic;
-    font-weight:400;font-size:.85rem;letter-spacing:.05em;
-    color:var(--ink-soft);margin-top:.5rem;
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
-  .foot-col h4{
-    font-family:"Source Serif 4",serif;font-style:italic;font-weight:400;
-    font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--hearth);margin-bottom:.7rem;
-  }
-  .foot-col p,.foot-col a{
-    font-family:"Fraunces",serif;font-weight:500;font-size:1rem;line-height:1.55;
-    margin:0;display:block;
-  }
-  .foot-col a:hover{color:var(--hearth)}
-  .colophon{
-    max-width:1320px;margin:2.5rem auto 0;
-    border-top:var(--rule);padding-top:1.2rem;
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
-    font-family:"Source Serif 4",serif;font-style:italic;font-size:.85rem;color:var(--ink-soft);
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; }
   }
 
-  @media (max-width:780px){
-    .foot-grid{grid-template-columns:1fr;gap:1.5rem}
+  section { padding: clamp(3rem, 7vw, 6rem) 0; position: relative; z-index: 2; }
+  section.slab-moss {
+    background: var(--moss);
+    color: var(--cream);
+  }
+  section.slab-moss h2 { color: var(--cream); }
+  section.slab-moss .eyebrow { color: var(--brass); }
+  section.slab-moss .rule { background: rgba(244,239,230,0.2); }
+
+  .eyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin: 0 0 1.2rem;
+  }
+  .section-title {
+    font-size: clamp(2.4rem, 5vw + 0.5rem, 4.6rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    margin-bottom: clamp(1.5rem, 3vw, 2.6rem);
+    max-width: 12ch;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--moss);
+  }
+  section.slab-moss .section-title em { color: var(--brass); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+  @media (max-width: 820px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+  .about-body p { font-size: 1.08rem; max-width: 36em; }
+  .about-body p + p { margin-top: 1.1em; }
+  .about-body p:first-of-type::first-line { font-variant-caps: small-caps; letter-spacing: 0.06em; }
+
+  .about-aside {
+    border-left: 1px solid var(--rule);
+    padding-left: clamp(1.2rem, 2.5vw, 2.4rem);
+  }
+  .about-aside .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 0.4rem;
+  }
+  .about-aside h3 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .about-aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.98rem;
+  }
+  .about-aside li {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .about-aside li:last-child { border-bottom: 0; }
+  .about-aside li .v { color: var(--moss); font-family: var(--display); font-style: italic; }
+
+  .rooms {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  @media (max-width: 760px) {
+    .rooms { grid-template-columns: 1fr; }
+  }
+  .room {
+    border: 1px solid rgba(244, 239, 230, 0.3);
+    padding: clamp(1.5rem, 3vw, 2.4rem);
+    background: rgba(0,0,0,0.06);
+  }
+  .room .roman {
+    font-family: var(--display);
+    font-style: italic;
+    color: var(--brass);
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+  .room h3 {
+    font-family: var(--display);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 0.9rem;
+  }
+  .room p { color: rgba(244,239,230,0.85); }
+  .room ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0 0;
+    font-size: 0.95rem;
+  }
+  .room li {
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(244,239,230,0.18);
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+  }
+  .room li::before {
+    content: "·";
+    color: var(--brass);
+    font-size: 1.4rem;
+    line-height: 0;
+    position: relative;
+    top: 0.05rem;
   }
 
-  /* ====== SCROLL REVEALS ====== */
-  @supports (animation-timeline:view()){
-    .reveal{
-      animation:rise both;
-      animation-timeline:view();
-      animation-range:entry 0% cover 28%;
+  .pour {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .pour .label {
+    font-size: 0.82rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 0.4rem;
+  }
+  .pour h3 {
+    font-family: var(--display);
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 0.95;
+    color: var(--cream);
+  }
+  .pour .pct {
+    font-family: var(--display);
+    font-style: italic;
+    color: var(--brass);
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+  }
+  .pour p {
+    max-width: 28em;
+    color: rgba(244, 239, 230, 0.78);
+    font-size: 1rem;
+  }
+
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+  }
+  @media (max-width: 880px) {
+    .visit-grid { grid-template-columns: 1fr; }
+  }
+
+  .hours-card {
+    border: 1px solid var(--ink);
+    background: var(--cream-warm);
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+    position: relative;
+  }
+  .hours-card::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid var(--ink);
+    pointer-events: none;
+  }
+  .hours-card h3 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .hours-card table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .hours-card td {
+    padding: 0.55rem 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .hours-card td:last-child {
+    text-align: right;
+    font-family: var(--display);
+    font-style: italic;
+    color: var(--moss-deep);
+  }
+  .hours-card tr:last-child td { border-bottom: 0; }
+  .hours-card .note {
+    margin-top: 1.2rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.88rem;
+    color: var(--moss);
+    font-style: italic;
+  }
+
+  .contact-block {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-top: 1.4rem;
+  }
+  .contact-block .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 0.2rem;
+    display: block;
+  }
+  .contact-block a {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--brass-deep);
+    color: var(--ink);
+  }
+  .contact-block a:hover { border-bottom-color: var(--ink); }
+  .contact-block .addr {
+    margin: 0.6rem 0 0;
+    font-style: normal;
+    font-size: 1.1rem;
+    color: var(--moss-deep);
+    font-family: var(--display);
+  }
+
+  .map-frame {
+    border: 1px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--cream-warm);
+  }
+  .map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: contrast(1.02) saturate(0.85) sepia(0.08);
+  }
+
+  .gallery-intro {
+    max-width: 36em;
+    color: rgba(244,239,230,0.85);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    font-size: 1.08rem;
+  }
+  .frames {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.8rem, 2vw, 1.6rem);
+  }
+  @media (max-width: 720px) {
+    .frames { grid-template-columns: 1fr 1fr; }
+    .frames .f3 { display: none; }
+  }
+  .frame {
+    aspect-ratio: 3 / 4;
+    border: 1px solid rgba(244,239,230,0.3);
+    background:
+      linear-gradient(135deg, rgba(199,180,134,0.10) 0%, rgba(30,42,34,0.20) 100%);
+    position: relative;
+    display: flex;
+    align-items: end;
+    padding: 1.1rem;
+  }
+  .frame .caption {
+    font-family: var(--display);
+    font-style: italic;
+    color: var(--brass);
+    font-size: 0.95rem;
+  }
+  .frame::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px dashed rgba(244,239,230,0.22);
+  }
+  .frame.f2 { aspect-ratio: 4 / 5; align-self: end; }
+  .frame.f3 { aspect-ratio: 5 / 6; }
+
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: clamp(3rem, 5vw, 5rem) 0 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  footer .wrap {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+  @media (max-width: 760px) {
+    footer .wrap { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  footer h4 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: var(--brass);
+    letter-spacing: 0.02em;
+  }
+  footer .lockup {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+  footer .lockup em { font-style: italic; color: var(--brass); }
+  footer p, footer a { color: rgba(244, 239, 230, 0.82); font-size: 0.98rem; }
+  footer a { text-decoration: none; border-bottom: 1px solid rgba(199,180,134,0.4); }
+  footer a:hover { border-bottom-color: var(--brass); color: var(--cream); }
+  footer .colophon {
+    grid-column: 1 / -1;
+    margin-top: 2.5rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(244,239,230,0.18);
+    font-size: 0.8rem;
+    color: rgba(244,239,230,0.5);
+    letter-spacing: 0.04em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
     }
-    @keyframes rise{
-      from{opacity:0;transform:translateY(2rem)}
-      to{opacity:1;transform:translateY(0)}
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(1.8rem); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   }
-  @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation:none!important;transition:none!important}
-    .marquee-track{animation:none!important}
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none !important; }
   }
 </style>
 </head>
 <body>
 
-<div class="ribbon">
-  <div class="ribbon-row">
-    <span><span class="dot"></span>Wood burner lit · Bass on cask · Garden open through the warmer months</span>
-    <span>Mon–Thu 4–11 · Fri 3–11 · Sat 12–11 · Sun 11–11</span>
-  </div>
-</div>
+<a href="#main" style="position:absolute;left:-9999px" onfocus="this.style.left='1rem'">Skip to content</a>
 
-<nav class="top">
-  <a href="#" class="mark" aria-label="The Apple Tree, Quorn — home">
-    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <path d="M16 27c-1.6-3-5-4.5-8-4.8 0-5 3.6-9 8-9s8 4 8 9c-3 .3-6.4 1.8-8 4.8Z" fill="var(--orchard)"/>
-      <path d="M16 13.2c0-3 1-5.4 3.5-7" stroke="var(--hearth)" stroke-width="1.6" stroke-linecap="round"/>
-      <circle cx="11.5" cy="17" r="2" fill="var(--hearth)"/>
-      <circle cx="20" cy="19" r="1.7" fill="var(--hearth-glow)"/>
-    </svg>
-    <span>
-      The Apple Tree
-      <small>Quorn · Stoop Lane</small>
-    </span>
-  </a>
-  <ul>
-    <li><a href="#about" class="link">The Pub</a></li>
-    <li><a href="#whats-on" class="link">What&rsquo;s On</a></li>
-    <li><a href="#garden" class="link">Garden</a></li>
-    <li><a href="#gallery" class="link">Inside</a></li>
-    <li><a href="#contact" class="link">Find Us</a></li>
-  </ul>
-  <a href="tel:+441509412487" class="phone-pill" aria-label="Call the pub on 01509 412487">
-    01509 412487
-    <small>call the bar</small>
-  </a>
-</nav>
-
-<header class="hero">
-  <div class="hero-grid">
-    <h1>
-      <span class="the">The</span>
-      <span class="apple">Apple</span>
-      <span class="tree">Tree.</span>
-    </h1>
-    <aside class="hero-aside">
-      <p class="stand">
-        A <b>1930s two-room local</b> on the corner of Stoop Lane and Station Road — wood burner in the lounge, sports on the screens in the bar, and a large rear garden that runs all the way to the back.
-      </p>
-      <div class="hero-meta" aria-label="At a glance">
-        <div><span>Cask ale</span><span>Draught Bass · guest ales</span></div>
-        <div><span>Warm by</span><span>The wood burner</span></div>
-        <div><span>Outside</span><span>Large rear garden</span></div>
-        <div><span>Welcome</span><span>Dogs · families</span></div>
-        <div><span>Games</span><span>Darts · dominoes</span></div>
-      </div>
-      <span class="open-pill">Open until 11 tonight</span>
-    </aside>
-  </div>
-</header>
-
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Bass on cask</span>
-    <span>Wood burner lit</span>
-    <span>Dogs welcome</span>
-    <span>Big rear garden</span>
-    <span>Sports on the screens</span>
-    <span>Darts &amp; dominoes</span>
-    <span>Children&rsquo;s play area</span>
-    <!-- duplicated for seamless loop -->
-    <span>Bass on cask</span>
-    <span>Wood burner lit</span>
-    <span>Dogs welcome</span>
-    <span>Big rear garden</span>
-    <span>Sports on the screens</span>
-    <span>Darts &amp; dominoes</span>
-    <span>Children&rsquo;s play area</span>
-  </div>
-</div>
-
-<section id="about" class="about">
-  <div class="wrap about-grid reveal">
-    <div>
-      <span class="eyebrow">— The Pub</span>
-      <h2>A proper local,<br>not a <span class="it">project.</span></h2>
-    </div>
-    <div class="about-body">
-      <p>Set on the corner of Stoop Lane and Station Road in Quorn, the Apple Tree is a 1930s building that has kept most of its bones — including the old off-sales hatch and the two small rooms that still divide bar from lounge.</p>
-      <p>The lounge has been gently brought up to date, with a wood burner that does most of the talking on a winter evening. Through the interconnecting door, the bar leans the other way: a TV showing the football, patio doors out to a front seating area, and a steady rhythm of regulars who have been propping it up for years.</p>
-      <p>We pour <b>Draught Bass</b> as the resident cask ale — a Premium Bitter at 4.4% — alongside a rotating handful of guest beers. Families and dogs (on the lead) are welcome in equal measure. The garden out the back is where the summer goes.</p>
-    </div>
-  </div>
-</section>
-
-<section id="whats-on" class="whats-on moss">
-  <div class="wrap reveal">
-    <span class="eyebrow">— What&rsquo;s On</span>
-    <h2>Through the <span class="it">week.</span></h2>
-    <p class="lede">A short list — no theatre, no small plates, no concept. Just the things the pub is good at.</p>
-
-    <ul class="menu-list">
-      <li class="menu-row">
-        <span class="num">i.</span>
-        <div>
-          <h3>Cask ale, <span class="it">properly kept</span></h3>
-          <p>Draught Bass is the resident pint — a Burton premium bitter, kept cool, served well. A rotating slate of guest cask ales sits alongside it for the regulars who like to wander.</p>
-        </div>
-        <span class="tag">at the bar</span>
-      </li>
-      <li class="menu-row">
-        <span class="num">ii.</span>
-        <div>
-          <h3>The <span class="it">wood burner lounge</span></h3>
-          <p>The smaller of the two rooms — contemporary in décor, traditional in temperament. The wood burner is lit when the weather asks for it. A good place for a pint and a quiet hour.</p>
-        </div>
-        <span class="tag">left of the door</span>
-      </li>
-      <li class="menu-row">
-        <span class="num">iii.</span>
-        <div>
-          <h3>The bar &amp; <span class="it">the screens</span></h3>
-          <p>Through the interconnecting door, the bar carries the football, the cricket, the rugby and the racing. Patio doors open onto the front seating in the warmer months.</p>
-        </div>
-        <span class="tag">right of the door</span>
-      </li>
-      <li class="menu-row">
-        <span class="num">iv.</span>
-        <div>
-          <h3>Darts &amp; <span class="it">dominoes</span></h3>
-          <p>Two games, both still played — quietly competitive, never serious. If you want a board, ask at the bar.</p>
-        </div>
-        <span class="tag">most evenings</span>
-      </li>
-      <li class="menu-row">
-        <span class="num">v.</span>
-        <div>
-          <h3>The <span class="it">large rear garden</span></h3>
-          <p>The pub&rsquo;s open secret. A generous, shaded garden behind the building with a children&rsquo;s play area and plenty of space for a long Sunday. Open through the warmer months.</p>
-        </div>
-        <span class="tag">out the back</span>
-      </li>
+<nav class="top" aria-label="Primary">
+  <div class="wrap">
+    <div class="mark"><em>The</em>Apple Tree Inn</div>
+    <ul>
+      <li><a href="#about">The pub</a></li>
+      <li><a href="#inside">Inside</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li class="call-li"><a class="call" href="tel:+441509412487">01509 412487</a></li>
     </ul>
   </div>
-</section>
+</nav>
 
-<section id="garden" class="garden">
-  <div class="wrap reveal">
-    <span class="eyebrow">— The Garden</span>
-    <h2>An <span class="it">orchard of an afternoon</span><br>at the back of Quorn.</h2>
-    <p>
-      The garden runs the length of the building — wide, sheltered, with a children&rsquo;s play area at one end and tables enough for a Sunday. Dogs welcome on the lead. Bring the family. Bring the dog. Bring a paper.
-    </p>
-    <div class="meta-row">
-      <span>Family friendly</span>
-      <span>Dogs on the lead</span>
-      <span>Children&rsquo;s play area</span>
-      <span>Parking on site</span>
-      <span>Wi-Fi inside</span>
+<main id="main">
+
+  <header class="hero" id="home">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Quorn · Leicestershire · LE12 8BU</div>
+        <h1>Apple Tree <em>Inn</em></h1>
+        <p class="lede">A two-room village pub on the corner of Stoop Lane and Station Road. Built in the thirties, modernised quietly, still pouring Draught Bass by the wood burner.</p>
+        <div class="meta">
+          <span>Mon–Thu from 4pm</span>
+          <span>·</span>
+          <span>Sat &amp; Sun from noon</span>
+          <span>·</span>
+          <a href="tel:+441509412487">01509 412487</a>
+        </div>
+      </div>
+
+      <aside class="status-card" aria-label="At a glance">
+        <div class="open-now">At a glance</div>
+        <h3>A proper local.</h3>
+        <dl>
+          <dt>Address</dt><dd>2 Stoop Lane, Quorn</dd>
+          <dt>Postcode</dt><dd>LE12 8BU</dd>
+          <dt>On the bar</dt><dd>Draught Bass · 4.4%</dd>
+          <dt>Garden</dt><dd>Large · rear</dd>
+          <dt>Dogs</dt><dd>On a lead</dd>
+          <dt>Wood burner</dt><dd>Lit when it&rsquo;s cold</dd>
+        </dl>
+        <div class="est">Established in the 1930s.</div>
+      </aside>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>
+        Draught Bass on tap <span class="dot">·</span>
+        Wood burner lit <span class="dot">·</span>
+        Front patio &amp; rear garden <span class="dot">·</span>
+        Dogs on leads, not the furniture <span class="dot">·</span>
+        Darts &amp; dominoes <span class="dot">·</span>
+        Sports on the bar telly <span class="dot">·</span>
+        Off-sales hatch still in use <span class="dot">·</span>
+      </span>
+      <span>
+        Draught Bass on tap <span class="dot">·</span>
+        Wood burner lit <span class="dot">·</span>
+        Front patio &amp; rear garden <span class="dot">·</span>
+        Dogs on leads, not the furniture <span class="dot">·</span>
+        Darts &amp; dominoes <span class="dot">·</span>
+        Sports on the bar telly <span class="dot">·</span>
+        Off-sales hatch still in use <span class="dot">·</span>
+      </span>
     </div>
   </div>
-</section>
 
-<section id="gallery" class="gallery">
-  <div class="wrap reveal">
-    <span class="eyebrow">— Inside</span>
-    <h2>The <span class="it">lounge,</span> the bar,<br>the wood burner.</h2>
-    <p class="gallery-lede">Photos coming soon. In the meantime, you&rsquo;re very welcome to call in and see the pub as it is.</p>
-    <div class="frames">
-      <div class="frame">The lounge<em>— at the wood burner</em></div>
-      <div class="frame">The bar<em>— sports on the screens</em></div>
-      <div class="frame">The rear garden<em>— summer evenings</em></div>
-      <div class="frame">Stoop Lane<em>— 1930s corner</em></div>
-    </div>
-  </div>
-</section>
+  <section id="about" class="reveal">
+    <div class="wrap">
+      <div class="eyebrow">§ One · The pub</div>
+      <h2 class="section-title">Ninety years on a <em>quiet corner.</em></h2>
 
-<section id="contact" class="contact ink">
-  <div class="wrap contact-grid reveal">
-    <div>
-      <span class="eyebrow">— Find Us</span>
-      <h2>Two Stoop Lane,<br><span class="it">Quorn.</span></h2>
-      <p class="lede">On the corner of Stoop Lane and Station Road, a short walk from the village centre and an easy bus or train ride from Loughborough.</p>
+      <div class="about-grid">
+        <div class="about-body">
+          <p>The Apple Tree was built in the thirties and has stood on the corner of Stoop Lane and Station Road ever since. Most of the original structure is still here — the off-sales hatch among it — though the inside was lifted gently into the present a short while ago. New paint, kept bones.</p>
+          <p>It&rsquo;s a two-room pub with an interconnecting door, which means you can pick your mood: the lounge with the wood burner for a slow pint and a paper, or the bar for the match and a bit more company. Families welcome. Dogs welcome — on a lead, not the furniture.</p>
+          <p>The garden out the back is generous for a village pub. There&rsquo;s a front patio too, where the patio doors of the bar open out for the warmer afternoons. Park up on the lane. Walk down if you&rsquo;re local.</p>
+        </div>
 
-      <div class="letterhead">
-        <span class="label">The pub</span>
-        The Apple Tree<br>
-        2 Stoop Lane<br>
-        Quorn, Leicestershire<br>
-        <span class="postcode">LE12 8BU</span>
-
-        <span class="label">Call the bar</span>
-        <a href="tel:+441509412487">01509 412487</a>
-
-        <span class="label">Opening hours</span>
-        Monday &ndash; Thursday &nbsp;·&nbsp; 4pm – 11pm<br>
-        Friday &nbsp;·&nbsp; 3pm – 11pm<br>
-        Saturday &nbsp;·&nbsp; 12pm – 11pm<br>
-        Sunday &nbsp;·&nbsp; 11am – 11pm
-
-        <span class="label">Getting here</span>
-        Kinchbus route 2 stops a short walk away.<br>
-        Nearest station: Barrow-upon-Soar, ~15 minutes on foot.
+        <aside class="about-aside">
+          <div class="label">Facts</div>
+          <h3>What stays the same.</h3>
+          <ul>
+            <li><span>Built</span><span class="v">1930s</span></li>
+            <li><span>Rooms</span><span class="v">Two</span></li>
+            <li><span>Off-sales hatch</span><span class="v">Retained</span></li>
+            <li><span>Wood burner</span><span class="v">Lounge</span></li>
+            <li><span>Sports telly</span><span class="v">Bar</span></li>
+            <li><span>Garden</span><span class="v">Rear</span></li>
+            <li><span>Parking</span><span class="v">On site</span></li>
+            <li><span>Wi-Fi</span><span class="v">Yes</span></li>
+          </ul>
+        </aside>
       </div>
     </div>
-    <div>
-      <div class="map">
-        <iframe
-          loading="lazy"
-          title="Map of The Apple Tree, 2 Stoop Lane, Quorn, LE12 8BU"
-          src="https://www.google.com/maps?q=2+Stoop+Lane+Quorn+LE12+8BU&output=embed"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen></iframe>
+  </section>
+
+  <section id="inside" class="slab-moss">
+    <div class="wrap reveal">
+      <div class="eyebrow">§ Two · Inside</div>
+      <h2 class="section-title">Two rooms. <em>One door between them.</em></h2>
+
+      <div class="rooms">
+        <div class="room">
+          <div class="roman">i.</div>
+          <h3>The Lounge</h3>
+          <p>Decorated in a contemporary fashion. A wood burner that gets going when the weather turns. The room for a quiet half, a chat, a Sunday paper.</p>
+          <ul>
+            <li>Wood burner, properly lit</li>
+            <li>Soft lighting after dark</li>
+            <li>Wi-Fi if you need it</li>
+            <li>Quieter side of the door</li>
+          </ul>
+        </div>
+        <div class="room">
+          <div class="roman">ii.</div>
+          <h3>The Bar</h3>
+          <p>Patio doors open onto a front seating area when the sun shows up. The match is on. Darts board on the wall. Dominoes if you ask.</p>
+          <ul>
+            <li>Sports TV — football, rugby, racing</li>
+            <li>Patio doors to front seating</li>
+            <li>Darts &amp; dominoes</li>
+            <li>Where the regulars sit</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pour">
+        <div>
+          <div class="label">On the bar</div>
+          <h3>Draught Bass.</h3>
+          <span class="pct">Premium bitter · 4.4% ABV · cask</span>
+        </div>
+        <p>One regular cask line, kept right. Plus the usual range of beers, wines, spirits and soft drinks you&rsquo;d expect from a village local. Ask what&rsquo;s good.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section id="visit">
+    <div class="wrap reveal">
+      <div class="eyebrow">§ Three · Visit</div>
+      <h2 class="section-title">When we&rsquo;re open, <em>and how to find us.</em></h2>
+
+      <div class="visit-grid">
+        <div>
+          <div class="hours-card">
+            <h3>Opening hours</h3>
+            <table>
+              <tbody>
+                <tr><td>Monday</td><td>4pm — 11pm</td></tr>
+                <tr><td>Tuesday</td><td>4pm — 11pm</td></tr>
+                <tr><td>Wednesday</td><td>4pm — 11pm</td></tr>
+                <tr><td>Thursday</td><td>4pm — 11pm</td></tr>
+                <tr><td>Friday</td><td>3pm — 11pm</td></tr>
+                <tr><td>Saturday</td><td>Noon — 11pm</td></tr>
+                <tr><td>Sunday</td><td>11am — 11pm</td></tr>
+              </tbody>
+            </table>
+            <p class="note">Hours can shift around bank holidays and big match days. Best to ring ahead if you&rsquo;re travelling.</p>
+          </div>
+
+          <div class="contact-block">
+            <span class="label">Telephone</span>
+            <a href="tel:+441509412487">01509 412487</a>
+            <p class="addr">2 Stoop Lane, Quorn<br>Loughborough, Leicestershire<br>LE12 8BU</p>
+            <p style="margin-top:1rem"><a href="mailto:bsteevo1978@gmail.com" style="font-family:var(--body);font-size:1rem;border-bottom-color:var(--rule)">bsteevo1978@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="map-frame">
+          <iframe
+            title="Apple Tree Inn on the map"
+            src="https://www.google.com/maps?q=2+Stoop+Lane,+Quorn,+LE12+8BU&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="slab-moss">
+    <div class="wrap reveal">
+      <div class="eyebrow">§ Four · Gallery</div>
+      <h2 class="section-title">Pictures of the place, <em>coming shortly.</em></h2>
+
+      <p class="gallery-intro">We&rsquo;re putting together a proper set of photographs — the lounge in winter with the burner going, the bar on a match day, the garden in May. Come back soon, or come and see for yourself.</p>
+
+      <div class="frames">
+        <div class="frame f1"><span class="caption">The lounge · winter</span></div>
+        <div class="frame f2"><span class="caption">The bar · match day</span></div>
+        <div class="frame f3"><span class="caption">The garden · May</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer>
-  <div class="foot-grid">
-    <div class="foot-mark">
-      The Apple <span class="it">Tree.</span>
-      <small>A 1930s pub on the corner of Stoop Lane &amp; Station Road, Quorn, Leicestershire.</small>
+  <div class="wrap">
+    <div>
+      <div class="lockup"><em>The</em> Apple Tree<br>Inn, Quorn</div>
+      <p>A village pub on the corner of Stoop Lane and Station Road. Open to the village, the next village, and anyone walking past.</p>
     </div>
-    <div class="foot-col">
-      <h4>Visit</h4>
-      <p>2 Stoop Lane<br>Quorn, LE12 8BU</p>
+
+    <div>
+      <h4>Find us</h4>
+      <p>2 Stoop Lane<br>Quorn, Loughborough<br>Leicestershire LE12 8BU</p>
     </div>
-    <div class="foot-col">
-      <h4>Bar</h4>
-      <a href="tel:+441509412487">01509 412487</a>
+
+    <div>
+      <h4>Get in touch</h4>
+      <p><a href="tel:+441509412487">01509 412487</a><br>
+         <a href="mailto:bsteevo1978@gmail.com">bsteevo1978@gmail.com</a></p>
     </div>
-  </div>
-  <div class="colophon">
-    <span>The Apple Tree, Quorn — a Binning.AI built site.</span>
-    <span>Family &amp; dog friendly · Wi-Fi · Parking on site</span>
+
+    <div class="colophon">
+      <span>© The Apple Tree Inn · Quorn · LE12 8BU</span>
+      <span>Set in DM Serif Display &amp; DM Sans</span>
+    </div>
   </div>
 </footer>
 
