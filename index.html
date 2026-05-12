@@ -17,6 +17,7 @@
     --brass-deep: #A4926A;
     --cream:      #F4EFE6;
     --cream-warm: #EDE5D4;
+    --postcode:   #1E4D8B;
     --rule:       rgba(30, 42, 34, 0.18);
     --display:    "DM Serif Display", "Source Serif 4", Georgia, serif;
     --body:       "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -593,6 +594,20 @@
   @media (prefers-reduced-motion: reduce) {
     .reveal { animation: none !important; }
   }
+
+  .postcode-pill {
+    display: inline-block;
+    background: var(--postcode);
+    color: var(--cream);
+    font-family: var(--body);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    margin-left: 0.4rem;
+    vertical-align: 0.12em;
+    font-weight: 500;
+  }
 </style>
 </head>
 <body>
@@ -617,7 +632,7 @@
   <header class="hero" id="home">
     <div class="wrap">
       <div>
-        <div class="eyebrow">Quorn · Leicestershire · LE12 8BU</div>
+        <div class="eyebrow">Quorn · Leicestershire <span class="postcode-pill">LE12&nbsp;8BU</span></div>
         <h1>Apple Tree <em>Inn</em></h1>
         <p class="lede">A two-room village pub on the corner of Stoop Lane and Station Road. Built in the thirties, modernised quietly, still pouring Draught Bass by the wood burner.</p>
         <div class="meta">
